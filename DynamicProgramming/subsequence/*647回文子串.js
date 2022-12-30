@@ -5,7 +5,7 @@ const rl=readline.createInterface({
 })
 
 const countSubstrings = function(s) {
-    const dp=new Array(s.length).fill(0).map(item=>new Array(s.length).fill(0))
+    const dp=new Array(s.length).fill(false).map(item=>new Array(s.length).fill(false))
     let res=0
     for(let i=0;i<s.length;i++){
         for(let j=0;j<=i;j++){
@@ -14,20 +14,16 @@ const countSubstrings = function(s) {
                     if(dp[i-1][j+1]){
                        dp[i][j]=true
                        res++ 
-                    }else{
-                        dp[i][j]=false
                     }
                 }else{
                     dp[i][j]=true
                     res++
                 }
-            }else{
-                dp[i][j]=false
             }
         }
     }
     return res
-};
+}
 
 rl.on('line',function(line){
   console.log(countSubstrings(line))
