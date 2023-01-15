@@ -5,29 +5,21 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const detectCycle = function (head) {
-  let slow = (fast = head)
-  while (fast !== null && fast.next !== null) {
-    slow = slow.next
-    fast = fast.next.next
-    if (slow === fast) {
-      let node1 = head,
-        node2 = fast
-      while (node1 !== node2) {
-        node1 = node1.next
-        node2 = node2.next
-      }
-      return node1
-    }
+const hasCycle = function(head) {
+  let fast=head,slow=head
+  while(fast&&fast.next){
+      fast=fast.next.next
+      slow=slow.next
+      if(slow===fast)return true
   }
-  return null
+  return false
 }
 
 rl.on('line',function(line){
   const list = new MyLinkedList()
   list.createLinkedList(line.split(' ').map(Number))
   list.tail.next = list.head.next
-  console.log(detectCycle(list.head))
+  console.log(hasCycle(list.head))
   rl.close()
 })
 rl.on('close',function(){
