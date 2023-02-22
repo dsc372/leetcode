@@ -30,7 +30,6 @@ const backspaceCompare = function(s, t) {
         sl--
         tl--
     }
-    console.log(1)
     return tl===-1&&sl===-1
 }
 
