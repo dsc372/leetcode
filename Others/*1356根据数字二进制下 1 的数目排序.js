@@ -4,22 +4,20 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const reverse = function(x) {
-    const arr=x.toString().split('')
-    let flag=false
-    while(arr[arr.length-1]==='0')arr.pop()
-    if(arr[0]==='-'){
-        flag=true
-        arr.shift()
-    }
-    arr.reverse()
-    let res=flag?-Number(arr.join('')):Number(arr.join(''))
-    if(res<-2147483648||res>2147483647)return 0
-    else return res 
+const sortByBits = function(arr) {
+  const bitCount=function(n){
+      let count=0
+      while(n){
+          n&=(n-1)
+          count++
+      }
+      return count
+  }
+  return arr.sort((a,b)=>bitCount(a)-bitCount(b)||a-b)
 }
 
 rl.on("line", function (line) {
-  console.log(reverse(Number(line)))
+  console.log(sortByBits(Number(line)))
   rl.close()
 })
 rl.on("close", function () {
