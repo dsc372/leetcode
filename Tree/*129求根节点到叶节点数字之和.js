@@ -18,7 +18,6 @@ const backTrack=function(root,cur,res){
   if(root.right){
       res=backTrack(root.right,cur,res)
   }
-  cur=(cur-root.val)/10
   return res
 }
 

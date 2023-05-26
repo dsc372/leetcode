@@ -27,7 +27,7 @@ const minDepth = function (root) {
 
 rl.on("line", function (line) {
   const root = MyTree.createTree(line.split(" "))
-  console.log(maxDepth(root))
+  console.log(minDepth(root))
   rl.close()
 })
 rl.on("close", function () {
