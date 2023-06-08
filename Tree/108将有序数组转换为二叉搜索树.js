@@ -10,16 +10,11 @@ function TreeNode(val, left, right) {
   this.right = right === undefined ? null : right
 }
 
-const traversal = function (left, right, nums) {
-  if (left > right) return null
-  let mid = Math.floor((left + right) / 2)
-  const root = new TreeNode(nums[mid])
-  root.left = traversal(left, mid - 1, nums)
-  root.right = traversal(mid + 1, right, nums)
+const sortedArrayToBST = function(nums) {
+  if(nums.length===0)return null
+  const midIndex=Math.floor((nums.length-1)/2)
+  const root=new TreeNode(nums[midIndex],sortedArrayToBST(nums.slice(0,midIndex)),sortedArrayToBST(nums.slice(midIndex+1)))
   return root
-}
-const sortedArrayToBST = function (nums) {
-  return traversal(0, nums.length - 1, nums)
 }
 
 rl.on("line", function (line) {

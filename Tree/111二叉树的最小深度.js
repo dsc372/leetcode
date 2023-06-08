@@ -5,24 +5,16 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const minDepth = function (root) {
-  if (!root) return 0
-  let res = 1
-  const que = new Array(root)
-  while (que.length) {
-    let size = que.length
-    while (size--) {
-      if (que[0].left || que[0].right) {
-        if (que[0].left) que.push(que[0].left)
-        if (que[0].right) que.push(que[0].right)
-        que.shift()
-      } else {
-        return res
-      }
-    }
-    res++
+const minDepth = function(root) {
+  if(root===null)return 0
+  let minLeft=minDepth(root.left),minRight=minDepth(root.right)
+  if(minLeft===0&&minRight===0){
+      return 1
+  }else if(minLeft===0||minRight===0){
+      return 1+(minLeft===0?minRight:minLeft)
+  }else{
+      return 1+Math.min(minLeft,minRight)
   }
-  return res
 }
 
 rl.on("line", function (line) {

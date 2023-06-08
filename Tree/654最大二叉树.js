@@ -19,8 +19,8 @@ const constructMaximumBinaryTree = function (nums) {
         }
     }
     const root=new TreeNode(max)
-    if(index!==0)root.left=constructMaximumBinaryTree(nums.slice(0,index))
-    if(index!==nums.length)root.right=constructMaximumBinaryTree(nums.slice(index+1))
+    root.left=constructMaximumBinaryTree(nums.slice(0,index))
+    root.right=constructMaximumBinaryTree(nums.slice(index+1))
     return root
 }
 

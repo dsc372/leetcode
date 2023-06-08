@@ -5,9 +5,6 @@ const rl=readline.createInterface({
 })
 
 const lastStoneWeightII = function(stones) {
-    stones.sort((a,b)=>{
-       return a-b
-    })
     let sum=stones.reduce((start,current)=>{
         return start+current
     },0)

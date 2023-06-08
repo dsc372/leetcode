@@ -5,9 +5,6 @@ const rl=readline.createInterface({
 })
 
 const canPartition = function(nums) {
-    nums.sort((a,b)=>{
-       return a-b
-    })
     let sum=nums.reduce((start,current)=>{
         return start+current
     },0)

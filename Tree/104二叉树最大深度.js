@@ -21,6 +21,12 @@ const maxDepth = function (root) {
   return res
 }
 
+// const maxDepth = function(root) {
+//   if(root===null)return 0
+//   let res=1
+//   return res+Math.max(maxDepth(root.left),maxDepth(root.right))
+// };
+
 rl.on("line", function (line) {
   const root = MyTree.createTree(line.split(" "))
   console.log(maxDepth(root))

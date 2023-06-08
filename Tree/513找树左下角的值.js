@@ -24,7 +24,7 @@ const findBottomLeftValue = function (root) {
 
 rl.on("line", function (line) {
   const root = MyTree.createTree(line.split(" "))
-  console.log(levelOrder(root))
+  console.log(findBottomLeftValue(root))
   rl.close()
 })
 rl.on("close", function () {

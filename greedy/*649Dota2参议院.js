@@ -12,10 +12,7 @@ const predictPartyVictory = function(senateStr) {
         D=false
         for(let i=0;i<senate.length;i++){
             if(senate[i]==='R'){
-                if(flag<0){
-                    console.log('a')
-                    senate[i]='0'
-                }
+                if(flag<0)senate[i]='0'
                 else R=true
                 flag++
             }

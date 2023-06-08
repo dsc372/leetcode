@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 const twoSumTarget = function (nums, start, target) {
   const res = new Array()
-  if (nums[start]>=target) return res
+  if (nums[start]>target) return res
   let left = start,
     right = nums.length - 1
   while (left < right) {
