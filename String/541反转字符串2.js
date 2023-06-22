@@ -11,7 +11,7 @@ const reverseStr = function (s, k) {
     let left = i,
       right = Math.min(i + k, s.length) - 1
     while (left < right) {
-      ;[arr[left], arr[right]] = [arr[right], arr[left]]
+      [arr[left], arr[right]] = [arr[right], arr[left]]
       left++
       right--
     }

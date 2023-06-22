@@ -4,22 +4,23 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const monotoneIncreasingDigits = function(n) {//可利用flag优化
-    let s=n.toString().split('')
-    for(let i=s.length-1;i>=1;i--){
-        if(s[i]<s[i-1]){
-            for(let j=i;j<s.length;j++){
-                s[j]='9'
-            }
-            if(i===1&&s[i-1]==='1'){
-                s.shift()
-            }else{
-                s[i-1]--
-            }
+const fn=function(nums){
+    for(let i=1;i<nums.length;i++){
+        if(nums[i]<nums[i-1])return false
+    }
+    return true
+}
+const monotoneIncreasingDigits = function(n) {
+    let arr=n.toString().split('')
+    for(let i=arr.length;i>=2;i--){
+        if(fn(arr.slice(0,i)))break
+        else{
+            arr[i-1]=9
+            arr[i-2]--
         }
     }
-    return parseInt(s.join(''))
-};
+    return Number(arr.join(''))
+}
 
 rl.on("line", function (line) {
     console.log(monotoneIncreasingDigits(line))

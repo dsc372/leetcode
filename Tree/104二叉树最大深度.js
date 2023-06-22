@@ -6,19 +6,9 @@ const rl = readline.createInterface({
 })
 
 const maxDepth = function (root) {
-  if (!root) return 0
-  let res = 0
-  const que = new Array(root)
-  while (que.length) {
-    let size = que.length
-    while (size--) {
-      if (que[0].left) que.push(que[0].left)
-      if (que[0].right) que.push(que[0].right)
-      que.shift()
-    }
-    res++
-  }
-  return res
+  if(root===null)return 0
+    let res=1
+    return res+Math.max(maxDepth(root.left),maxDepth(root.right))
 }
 
 // const maxDepth = function(root) {

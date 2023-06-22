@@ -5,27 +5,36 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
+const reverseList = function (head) {
+  if (!head || !head.next) return head
+  let cur = head
+  let pre = (post = null)
+  while (cur) {
+    post = cur.next
+    cur.next = pre
+    pre = cur
+    cur = post
+  }
+  return pre
+}
 const reorderList = function(head) {
-  const arr=new Array()
-  let cur=head
-  while(cur){
-      arr.push(cur.val)
-      cur=cur.next
-  }
-  cur=head
-  let left=1,right=arr.length-1
-  while(left<=right){
-      let tmp=new ListNode(arr[right])
-      cur.next=tmp
-      cur=cur.next
-      right--
-      if(left<=right){
-          tmp=new ListNode(arr[left])
-          cur.next=tmp
-          cur=cur.next
-          left++
-      }
-  }
+    const tmpHead=new ListNode(null,head)
+    let slow=fast=tmpHead
+    while(fast&&fast.next){
+        slow=slow.next
+        fast=fast.next.next
+    }
+    fast=slow.next
+    slow.next=null
+    slow=head
+    fast=reverseList(fast)
+    while(fast){
+      let cur=fast.next
+      fast.next=slow.next
+      slow.next=fast
+      fast=cur
+      slow=slow.next.next
+    }
 }
 
 rl.on('line',function(line){

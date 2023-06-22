@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      let text = ""
+      let list = []
+
+      const updateText=function() {
+        const spanElement = document.getElementById("span")
+        spanElement.textContent = text
+      }
+
+      const updateList=function () {
+        const ulElement = document.getElementById("ul")
+        ulElement.innerHTML = ""
+        for (let i = 0; i < list.length; i++) {
+          const liElement = document.createElement("li")
+          liElement.textContent = list[i]
+          ulElement.appendChild(liElement)
+        }
+      }
+
+      Object.defineProperty(window, "text", {
+        get: function () {
+          return text
+        },
+        set: function (value) {
+          text = value
+          updateText()
+        },
+      })
+
+      Object.defineProperty(window, "list", {
+        get: function () {
+          return list
+        },
+        set: function (value) {
+          list = value
+          updateList()
+        },
+      })
+
+      text = 'Hello, world!';
+list.push('我是li');
+list.push('我是li的第二个元素');
+    </script>
+    <style></style>
+    <title>Document</title>
+  </head>
+  <body>
+    <span id="span"></span>
+<ul id="ul">
+</ul>
+  </body>
+</html>
