@@ -6,16 +6,9 @@ const rl = readline.createInterface({
 })
 
 const maxDepth = function (root) {
-  if(root===null)return 0
-    let res=1
-    return res+Math.max(maxDepth(root.left),maxDepth(root.right))
+  if (root === null) return 0
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right))
 }
-
-// const maxDepth = function(root) {
-//   if(root===null)return 0
-//   let res=1
-//   return res+Math.max(maxDepth(root.left),maxDepth(root.right))
-// };
 
 rl.on("line", function (line) {
   const root = MyTree.createTree(line.split(" "))

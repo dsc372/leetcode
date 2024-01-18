@@ -10,7 +10,6 @@ const pivotIndex = function(nums) {
     for(let i=0;i<nums.length;i++){
         if(leftSum===((sum-nums[i])/2))return i
         else leftSum+=nums[i]
-        console.log(leftSum)
     }
     return -1
 

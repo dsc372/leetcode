@@ -5,20 +5,19 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const isSameTree = function(p, q) {
-  if(p===null&&q===null)return true
-  else if(p===null||q===null) return false
-  else if(p.val!==q.val)return false
-  else return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right)
+const isSameTree = function (p, q) {
+  if (!p && !q) return true
+  else if (!q || !p || p.val !== q.val) return false
+  else return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 }
 
-const lines=new Array()
+const lines = new Array()
 rl.on("line", function (line) {
   lines.push(line)
-  if(lines.length===2){
+  if (lines.length === 2) {
     const root1 = MyTree.createTree(lines[0].split(" "))
     const root2 = MyTree.createTree(lines[1].split(" "))
-    console.log(isSameTree(root1,root2))
+    console.log(isSameTree(root1, root2))
     rl.close()
   }
 })

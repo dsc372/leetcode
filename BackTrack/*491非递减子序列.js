@@ -12,13 +12,12 @@ const backTrack = function (nums, index) {
   }
   let set=[]
   for(let i=index;i<nums.length;i++){
-    if((path.length>0&&nums[i]<path[path.length-1])||set[nums[i]+100]){
-      continue
+    if(!set[nums[i]+100]&&(!path.length||path[path.length-1]<=nums[i])){
+      set[nums[i]+100]=true
+      path.push(nums[i])
+      backTrack(nums,i+1)
+      path.pop()
     }
-    set[nums[i]+100]=true
-    path.push(nums[i])
-    backTrack(nums,i+1)
-    path.pop()
   }
 }
 const findSubsequences = function (nums) {

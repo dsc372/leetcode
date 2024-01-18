@@ -16,9 +16,8 @@ const isIsomorphic = function(s, t) {
            }else{
                return false
            }
-        }else{
-            if(hashA.get(s[i])!==t[i])return false
-        }
+        }else if(hashA.get(s[i])!==t[i])
+            return false
     }
     return true
 }

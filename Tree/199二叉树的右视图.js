@@ -12,14 +12,14 @@ const rightSideView = function (root) {
   que.push(root)
   while (que.length) {
     let size = que.length
-    while (size-- > 1) {
+    while (size--) {
       if (que[0].left) que.push(que[0].left)
       if (que[0].right) que.push(que[0].right)
-      que.shift()
+      if(size>0)
+        que.shift()
+      else
+        res.push(que.shift().val)
     }
-    if (que[0].left) que.push(que[0].left)
-    if (que[0].right) que.push(que[0].right)
-    res.push(que.shift().val)
   }
   return res
 }

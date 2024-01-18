@@ -11,7 +11,7 @@ const backTrack = function (n, k, startIndex) {
     res.push([...path])
     return
   }
-  for (let i = startIndex; i <= n-(k-path.length); i++) {
+  for (let i = startIndex; i <= n-(k-path.length-1); i++) {
     path.push(i)
     backTrack(n, k, i + 1)
     path.pop()

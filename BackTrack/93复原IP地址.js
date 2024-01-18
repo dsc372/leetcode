@@ -12,12 +12,9 @@ const backTrack=function(s,index){
         return
     }
     for(let i=index;i<s.length;i++){
-        if(s[index]==='0'&&i!==index)continue//处理0开头，但不是0的数
-        if(parseInt(s.slice(index,i+1))<=255&&parseInt(s.slice(index,i+1))>=0){
-            path.push(s.slice(index,i+1))
-        }else{
-            continue
-        }
+        let num=parseInt(s.slice(index,i+1))
+        if((s[index]==='0'&&i!==index)||(num<0||num>255))continue
+        path.push(num.toString())
         backTrack(s,i+1)
         path.pop()
     }

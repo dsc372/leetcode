@@ -6,10 +6,10 @@ const rl=readline.createInterface({
 
 const balancedStringSplit = function(s) {
     let sum=0,left=0
-    for(let i=0;i<s.length;i++){
-        if(s[i]==='L')left++
-        else left--
-        if(left===0)sum++
+    for(let i of s){
+        left+=i==='L'?1:-1
+        if(left===0)
+            sum++
     }
     return sum
 }

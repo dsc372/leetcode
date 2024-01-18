@@ -13,8 +13,7 @@ function TreeNode(val, left, right) {
 const sortedArrayToBST = function(nums) {
   if(nums.length===0)return null
   const midIndex=Math.floor((nums.length-1)/2)
-  const root=new TreeNode(nums[midIndex],sortedArrayToBST(nums.slice(0,midIndex)),sortedArrayToBST(nums.slice(midIndex+1)))
-  return root
+  return new TreeNode(nums[midIndex],sortedArrayToBST(nums.slice(0,midIndex)),sortedArrayToBST(nums.slice(midIndex+1)))
 }
 
 rl.on("line", function (line) {

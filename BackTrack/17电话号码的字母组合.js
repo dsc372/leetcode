@@ -28,8 +28,7 @@ const backTrack = function (digits, index) {
   }
 }
 const letterCombinations = function (digits) {
-  if (digits === "") return new Array()
-  res = new Array()
+  if (digits === "") return res
   backTrack(digits, 0)
   return res
 }

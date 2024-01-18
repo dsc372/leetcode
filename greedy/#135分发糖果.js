@@ -13,7 +13,7 @@ const candy = function(ratings) {
             nums[i]=1
         }
     }
-    for(let i=ratings.length-1;i>=0;i--){
+    for(let i=ratings.length-2;i>=0;i--){
         if(ratings[i]>ratings[i+1]&&nums[i]<=nums[i+1]){
            nums[i]=nums[i+1]+1
         }

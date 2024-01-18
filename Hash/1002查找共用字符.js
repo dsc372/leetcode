@@ -8,14 +8,14 @@ const commonChars = function (words) {
   const res = new Array()
   const firstHash = new Array(26).fill(0)
   const otherHash = new Array(26).fill(0)
-  const baseCode = "a".charCodeAt()
+  const baseCode = "a".charCodeAt(0)
 
-  for (i of words[0]) {
-    firstHash[i.charCodeAt() - baseCode]++
+  for (let i of words[0]) {
+    firstHash[i.charCodeAt(0) - baseCode]++
   }
   for (let i = 1; i < words.length; i++) {
     for (let j = 0; j < words[i].length; j++) {
-      otherHash[words[i][j].charCodeAt() - baseCode]++
+      otherHash[words[i][j].charCodeAt(0) - baseCode]++
     }
     for (let j = 0; j < 26; j++) {
       firstHash[j] = Math.min(firstHash[j], otherHash[j])

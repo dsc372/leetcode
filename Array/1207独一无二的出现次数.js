@@ -6,12 +6,12 @@ const rl = readline.createInterface({
 const uniqueOccurrences = function(arr) {
     const count=new Array(2001).fill(0)
     const judge=new Array(1001).fill(false)
-    for(i of arr){
+    for(let i of arr){
         count[i+1000]++
     }
-    for(i of count){
+    for(let i of count){
         if(i!==0){
-            if(judge[i]===true)return false
+            if(judge[i])return false
             else judge[i]=true
         }
     }

@@ -9,13 +9,13 @@ class MyQueue{
       this.que=new Array()  
     }
     push(x){
-        while(!(this.que.length===0)&&this.que[this.que.length-1]<x){
+        while(this.que.length&&this.que[this.que.length-1]<x){
             this.que.pop()
         }
         this.que.push(x)
     }
     pop(x){
-        if(!(this.que.length===0)&&x===this.que[0]){
+        if(this.que.length&&x===this.que[0]){
             this.que.shift()
         }
     }

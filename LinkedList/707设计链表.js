@@ -1,7 +1,7 @@
 class ListNode {
   constructor(val, next) {
-    this.val = val === undefined ? null : val
-    this.next = next === undefined ? null : next
+    this.val = val ?? null
+    this.next = next ?? null
   }
 }
 class MyLinkedList {
@@ -10,7 +10,7 @@ class MyLinkedList {
     this.head = null
     this.tail = null
   }
-  createLinkedList = function (arr) {
+  createLinkedList(arr) {
     if (arr.length === 0) return
     else {
       for (let i = 0; i < arr.length; i++) {
@@ -18,7 +18,7 @@ class MyLinkedList {
       }
     }
   }
-  getNode = function (index) {
+  getNode(index) {
     if (index < 0 || index >= this.size) return null
     else {
       let node = new ListNode(null, this.head)
@@ -28,17 +28,17 @@ class MyLinkedList {
       return node
     }
   }
-  get = function (index) {
+  get(index) {
     if (index < 0 || index >= this.size) return -1
     return this.getNode(index).val
   }
-  addAtHead = function (val) {
+  addAtHead(val) {
     let node = new ListNode(val, this.head)
     this.head = node
     this.size++
     if (!this.tail) this.tail = node
   }
-  addAtTail = function (val) {
+  addAtTail(val) {
     let node = new ListNode(val, null)
     this.size++
     if (!this.tail) {
@@ -49,7 +49,7 @@ class MyLinkedList {
       this.tail = node
     }
   }
-  addAtIndex = function (index, val) {
+  addAtIndex(index, val) {
     if (index > this.size) {
       return
     } else if (index <= 0) {
@@ -64,7 +64,7 @@ class MyLinkedList {
       this.size++
     }
   }
-  deleteAtIndex = function (index) {
+  deleteAtIndex(index) {
     if (index < 0 || index >= this.size) {
       return
     } else if (index === 0) {
@@ -81,7 +81,7 @@ class MyLinkedList {
       this.size--
     }
   }
-  printListNode = function () {
+  printListNode() {
     const res = new Array()
     let node = this.head
     while (node) {

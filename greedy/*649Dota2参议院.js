@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 const predictPartyVictory = function(senateStr) {
     let R=true,D=true,flag=0
-     let senate = senateStr.split('')
+    let senate = senateStr.split('')
     while(R&&D){
         R=false
         D=false

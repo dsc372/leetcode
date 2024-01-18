@@ -6,10 +6,7 @@ const rl = readline.createInterface({
 
 const smallerNumbersThanCurrent = function(nums) {
     const arr=[...nums].sort((a,b)=>a-b)
-    for(let i=0;i<nums.length;i++){
-        nums[i]=arr.indexOf(nums[i])
-    }
-    return nums
+    return nums.map(i=>arr.indexOf(i))
 }
 
 rl.on('line', function (line) {

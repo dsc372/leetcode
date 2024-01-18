@@ -6,19 +6,17 @@ const rl = readline.createInterface({
 })
 
 const detectCycle = function (head) {
-  let slow = (fast = head)
-  while (fast !== null && fast.next !== null) {
-    slow = slow.next
-    fast = fast.next.next
-    if (slow === fast) {
-      let node1 = head,
-        node2 = fast
-      while (node1 !== node2) {
-        node1 = node1.next
-        node2 = node2.next
+  let fast=head,slow=head
+  while(fast&&fast.next){
+      slow=slow.next
+      fast=fast.next.next
+      if(fast===slow){
+          while(head!==fast){
+              head=head.next
+              fast=fast.next
+          }
+          return head
       }
-      return node1
-    }
   }
   return null
 }

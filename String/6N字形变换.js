@@ -4,29 +4,26 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const convert = function(s, numRows) {
-    if(numRows===1)return s
-    let res=new Array()
-    let skip=(numRows-1)*2
-    for(i=0;i<numRows;i++){
-        if(i===0||i===numRows-1){
-            let index=i
-            while(index<s.length){
-                res.push(s[index])
-                index+=skip
-            } 
-        }else{
-            let index=i
-            while(index<s.length){
-                res.push(s[index])
-                if((index+skip-i*2)<s.length){
-                    res.push(s[index+skip-i*2])
-                }
-                index+=skip
-            }
-        }
-    }
-    return res.join('')
+const convert = function (s, numRows) {
+  if (numRows === 1) return s
+  let res = new Array()
+  let skip = (numRows - 1) * 2
+  for (i = 0; i < numRows; i++) {
+    let index = i
+    if (i === 0 || i === numRows - 1)
+      while (index < s.length) {
+        arr.push(s[index])
+        index += skip
+      }
+    else
+      while (index < s.length) {
+        arr.push(s[index])
+        let another_index = index + skip - 2 * i
+        if (another_index < s.length) arr.push(s[another_index])
+        index += skip
+      }
+  }
+  return res.join("")
 }
 
 const lines = new Array()

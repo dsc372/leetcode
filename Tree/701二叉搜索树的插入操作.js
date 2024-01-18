@@ -6,11 +6,9 @@ function TreeNode(val, left, right) {
 
 var insertIntoBST = function (root, val) {
   if (root === null) return new TreeNode(val)
-  else if (root.val > val && root.left === null) root.left = new TreeNode(val)
-  else if (root.val > val && root.left !== null)
+  else if (root.val > val )
     root.left = insertIntoBST(root.left, val)
-  else if (root.val < val && root.right === null) root.right = new TreeNode(val)
-  else if (root.val < val && root.right !== null)
+  else if (root.val < val)
     root.right = insertIntoBST(root.right, val)
   return root
 }

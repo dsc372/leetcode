@@ -5,14 +5,15 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const compare=function(left,right){
-  if(left===null&&right===null)return true
-  else if(left===null||right===null||left.val!==right.val)return false
-  else return compare(left.left,right.right)&&compare(left.right,right.left)
+const compare = function (left, right) {
+  if (left === null && right === null) return true
+  else if (left === null || right === null || left.val !== right.val)
+    return false
+  else return compare(left.left, right.right) && compare(left.right, right.left)
 }
 const isSymmetric = function (root) {
-if(root===null)return true
-return compare(root.left,root.right)
+  if (root === null) return true
+  return compare(root.left, root.right)
 }
 
 rl.on("line", function (line) {

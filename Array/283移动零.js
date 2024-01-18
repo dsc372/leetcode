@@ -4,15 +4,14 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 const moveZeroes = function(nums) {
-    let i=0,end=nums.length
-    while(i<end){
-        if(nums[i]===0){
-            nums.splice(i,1)
-            nums.push(0)
-            end--
-        }else{
-            i++
+    let index=0
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]!==0){
+            nums[index++]=nums[i]
         }
+    }
+    while(index<nums.length){
+        nums[index++]=0
     }
 }
 

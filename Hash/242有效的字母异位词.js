@@ -6,14 +6,14 @@ const rl = readline.createInterface({
 
 const isAnagram = function (s, t) {
   if (s.length !== t.length) return false
-  const ary = new Array(26).fill(0)
-  const base = "a".charCodeAt()
+  const arr = new Array(26).fill(0)
+  const base = "a".charCodeAt(0)
   for (i of s) {
-    ary[i.charCodeAt() - base]++
+    arr[i.charCodeAt(0) - base]++
   }
   for (i of t) {
-    if (!ary[i.charCodeAt() - base]) return false
-    ary[i.charCodeAt() - base]--
+    if (!arr[i.charCodeAt(0) - base]) return false
+    arr[i.charCodeAt(0) - base]--
   }
   return true
 }

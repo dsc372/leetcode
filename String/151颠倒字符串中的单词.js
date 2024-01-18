@@ -5,7 +5,7 @@ const rl=readline.createInterface({
 })
 
 const reverseWords = function(s) {
-    return s.trim().split(' ').filter((item)=>item.length>0).reverse().join(' ')
+    return s.trim().split(' ').filter(item=>item).reverse().join(' ')
 };
 
 rl.on('line',function(line){

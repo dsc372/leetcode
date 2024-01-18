@@ -5,16 +5,9 @@ const rl = readline.createInterface({
 })
 
 const topKFrequent = function (nums, k) {
-  const map = new Map()
-  for (let i of nums) {
-    map.set(i, (map.get(i) || 0) + 1)
-  }
-  const arr = [...map.entries()].sort((a, b) => b[1] - a[1])
-  const res = new Array()
-  for (let i = 0; i < k; i++) {
-    res.push(arr[i][0])
-  }
-  return res
+  const map=new Map()
+  nums.forEach(i=>map.set(i,(map.get(i)||0)+1))
+  return [...map.entries()].sort((a,b)=>b[1]-a[1]).slice(0,k).map(i=>i[0])
 }
 
 const lines = new Array()

@@ -14,7 +14,7 @@ const getDepth = function (root) {
   return Math.abs(left - right) > 1 ? -1 : 1 + Math.max(left, right)
 }
 const isBalanced = function (root) {
-  return !(getDepth(root) === -1)
+  return getDepth(root) !== -1
 }
 
 rl.on("line", function (line) {

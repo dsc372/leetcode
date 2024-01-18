@@ -4,21 +4,18 @@ function TreeNode(val, left, right) {
   this.right = right === undefined ? null : right
 }
 const buildTree = function (inorder, postorder) {
-  if (inorder.length === 0 || postorder.length === 0) return null
-  let root = new TreeNode(postorder[postorder.length - 1])
-  if (postorder.length === 1) return root
-  let index
-  for (let i = 0; i < inorder.length; i++) {
-    if (inorder[i] === root.val) {
-      index = i
-      break
-    }
+  if (!inorder.length && !postorder.length) return null
+  else if (postorder.length === 1 && inorder.length === 1)
+    return new TreeNode(postorder[postorder.length - 1])
+  else {
+    const index = inorder.indexOf(postorder[postorder.length - 1])
+    return new TreeNode(
+      postorder[postorder.length - 1],
+      buildTree(inorder.slice(0, index), postorder.slice(0, index)),
+      buildTree(
+        inorder.slice(index + 1),
+        postorder.slice(index, postorder.length - 1)
+      )
+    )
   }
-  const leftInorder = inorder.slice(0, index)
-  const rightInorder = inorder.slice(index + 1, inorder.length)
-  const leftPostorder = postorder.slice(0, index)
-  const rightPostorder = postorder.slice(index, postorder.length - 1)
-  root.left = buildTree(leftInorder, leftPostorder)
-  root.right = buildTree(rightInorder, rightPostorder)
-  return root
 }

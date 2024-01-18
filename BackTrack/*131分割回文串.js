@@ -20,11 +20,9 @@ const backTrack = function (s, index) {
   for (let i = index; i < s.length; i++) {
     if (isPalindrome(s, index, i)) {
         path.push(s.slice(index, i + 1))
-    } else {
-      continue
+        backTrack(s, i + 1)
+        path.pop()
     }
-    backTrack(s, i + 1)
-    path.pop()
   }
 }
 const partition = function (s) {

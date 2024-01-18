@@ -6,8 +6,7 @@ const rl = readline.createInterface({
 })
 
 const swapPairs = function(head) {
-  const dummyHead=new ListNode()
-  dummyHead.next=head
+  const dummyHead=new ListNode(null,head)
   let cur=dummyHead
   while(cur.next&&cur.next.next){
       let tmp=cur.next
