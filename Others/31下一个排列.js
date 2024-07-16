@@ -15,7 +15,7 @@ const nextPermutation = function(nums) {
                   break
               }
           }
-          nums.push(...nums.splice(i,nums.length-i).sort((a,b)=>a-b))
+          nums.push(...nums.splice(i).sort((a,b)=>a-b))
           return
       }
   }

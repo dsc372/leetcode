@@ -6,17 +6,18 @@ const rl = readline.createInterface({
 
 const nextGreaterElement = function(nums1, nums2) {
     const res=new Array(nums1.length).fill(-1)
-    for(let i=0;i<nums1.length;i++){
-        let j=nums2.indexOf(nums1[i])
-        while(j<nums2.length){
-            if(nums1[i]>=nums2[j]){
-                j++
-            }else{
-                res[i]=nums2[j]
-                break
-            }
-        }
-    }
+    const st=[]
+    const map=new Map()
+
+    nums2.forEach(num=>{
+        while(st.length&&num>st[st.length-1])
+            map.set(st.pop(),num)
+        st.push(num)
+    })
+    nums1.forEach((num,index)=>{
+        if(map.has(num))
+            res[index]=map.get(num)
+    })
     return res
 }
 

@@ -1,3 +1,4 @@
+//o(nlogn)
 function merge(left, right) {
     let temp = new Array();
     while (left.length > 0 && right.length > 0) {

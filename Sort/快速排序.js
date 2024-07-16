@@ -1,3 +1,4 @@
+//o(nlogn)
 const quickSort=function(nums){
     if(nums.length<=1)return nums
     let midVal=nums.splice(Math.floor(nums.length/2), 1)[0]

@@ -1,3 +1,4 @@
+//o(n*n)
 const insertionSort=function(nums){
     let index,cur
     for(let i=1;i<nums.length;i++){

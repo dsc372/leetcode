@@ -9,10 +9,8 @@ const travelrsal=function(root,path,res){
     path.push(root.val)
     if(root.left===null&&root.right===null){
         let sPath=''
-        for(let i=0;i<path.length-1;i++){
+        for(let i=0;i<path.length-1;i++)
             sPath+=`${path[i]}->`
-            console.log(sPath)
-        }
         sPath+=path[path.length-1]
         res.push(sPath)
         return

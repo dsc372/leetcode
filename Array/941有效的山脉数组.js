@@ -13,7 +13,7 @@ const validMountainArray = function(arr) {
     while(arr[right]<arr[right-1]){
         if(--right===0)return false
     }
-    return left>=right
+    return left===right
 }
 
 rl.on('line', function (line) {

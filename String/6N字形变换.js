@@ -12,14 +12,14 @@ const convert = function (s, numRows) {
     let index = i
     if (i === 0 || i === numRows - 1)
       while (index < s.length) {
-        arr.push(s[index])
+        res.push(s[index])
         index += skip
       }
     else
       while (index < s.length) {
-        arr.push(s[index])
+        res.push(s[index])
         let another_index = index + skip - 2 * i
-        if (another_index < s.length) arr.push(s[another_index])
+        if (another_index < s.length) res.push(s[another_index])
         index += skip
       }
   }

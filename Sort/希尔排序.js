@@ -1,3 +1,4 @@
+//o(n^2/3)
 const shellSort=function(nums){
     for(let gap=Math.floor(nums.length/2);gap>0;gap=Math.floor(gap/2)){
         for(let i=gap;i<nums.length;i++){

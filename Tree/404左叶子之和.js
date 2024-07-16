@@ -5,15 +5,13 @@ const rl = readline.createInterface({
   output: process.stdout,
 })
 
-const sumOfLeftLeaves = function(root) {
-    if(root===null)return 0
-    let left=sumOfLeftLeaves(root.left)
-    let right=sumOfLeftLeaves(root.right)
-    let mid=0
-    if(root.left&&!root.left.left&&!root.left.right){
-        mid=root.left.val
-    }
-    return left+mid+right
+const sumOfLeftLeaves = function (root) {
+  if (!root) return 0
+  const left = sumOfLeftLeaves(root.left),
+    right = sumOfLeftLeaves(root.right)
+  return root.left && !root.left.left && !root.left.right
+    ? root.left.val + left + right
+    : left + right
 }
 
 rl.on("line", function (line) {

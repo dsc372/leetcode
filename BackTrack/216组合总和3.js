@@ -10,8 +10,8 @@ let res = new Array()
 let path = new Array()
 const backTrack = function (k, n, startIndex, sum) {
   if (sum > n) return//剪枝
-  if (path.length === k) {//path.length>k直接return
-    if (sum === n) res.push([...path])
+  if (path.length === k&&sum === n) {//path.length>k直接return
+    res.push([...path])
     return
   }
   for (let i = startIndex; i <= 9 - (k - path.length)+1; i++) {//剪枝
