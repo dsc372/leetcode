@@ -7,20 +7,21 @@ const rl=readline.createInterface({
 let res=new Array()
 let path=new Array()
 const backTrack=function(candidates,target,index,sum){
-    if(sum>target)return
     if(sum===target){
         res.push([...path])
         return
     }
-    let i=index
-    while(i<candidates.length){
-        path.push(candidates[i])
-        sum+=candidates[i]
-        backTrack(candidates,target,i+1,sum)
-        sum-=candidates[i]
-        path.pop()
-        while(i<candidates.length&&candidates[i]===candidates[i+1])i++
-        i++
+    else if(sum<target){
+        let i=index
+        while(i<candidates.length){
+            path.push(candidates[i])
+            sum+=candidates[i]
+            backTrack(candidates,target,i+1,sum)
+            sum-=candidates[i]
+            path.pop()
+            while(i<candidates.length&&candidates[i]===candidates[i+1])i++
+            i++
+        }
     }
 }
 const combinationSum2 = function(candidates, target) {

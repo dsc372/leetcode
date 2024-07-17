@@ -1,4 +1,5 @@
-//o(nlogn)
+// 平均/最差 o(nlogn)
+// 最好 o(n)
 function merge(left, right) {
     let temp = new Array();
     while (left.length > 0 && right.length > 0) {
